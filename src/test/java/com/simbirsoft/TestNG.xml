@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Autotests" annotations="JDK" configfailurepolicy="continue" alwaysRun="true">
+    <test name="uiTests">
+        <classes>
+            <class name="com.simbirsoft.uiTests.test1"/>
+        </classes>
+    </test>
+</suite>
