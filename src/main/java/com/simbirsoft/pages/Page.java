@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.simbirsoft.Config.implicityWait;
+import static com.simbirsoft.Config.IMPLICITY_WAIT;
 
 public class Page {
 
@@ -25,7 +25,7 @@ public class Page {
 
     protected void setImplicitly(boolean val) {
         if (val) {
-            driver.manage().timeouts().implicitlyWait(implicityWait, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(IMPLICITY_WAIT, TimeUnit.SECONDS);
             return;
         }
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);

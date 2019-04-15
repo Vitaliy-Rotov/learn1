@@ -4,9 +4,10 @@ public class Config {
 
     private Config() {}
 
-    public static final int implicityWait = 10;
+    public static final int IMPLICITY_WAIT = 10;
 
-    public static final String baseUrl = "https://disk.yandex.ru/";
-    public static final String userName = "autotest4";
-    public static final String userPass = "sdet123";
+    public static final String BASE_URL = "https://disk.yandex.ru/";
+
+    public static final String USER_NAME = "autotest4";
+    public static final String USER_PASS = "sdet123";
 }

@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 public class MainPage extends Page {
 
@@ -38,10 +37,7 @@ public class MainPage extends Page {
         driver.findElement(submitModalButton).click();
     }
 
-    public void dnd() {
-        Actions action = new Actions(driver);
-        WebElement el1 = driver.findElements(resourceList).get(0);
-        WebElement el2 = driver.findElements(resourceList).get(1);
-        action.dragAndDrop(el1, el2).perform();
+    public WebElement getResourceByIndex(int index) {
+        return driver.findElements(resourceList).get(index);
     }
 }
