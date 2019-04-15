@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Autotests" annotations="JDK" configfailurepolicy="continue" alwaysRun="true">
+<suite name="Autotests" annotations="JDK" configfailurepolicy="continue">
     <test name="uiTests">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.simbirsoft.uiTests.test1"/>
         </classes>

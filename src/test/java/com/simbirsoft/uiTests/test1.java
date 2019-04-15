@@ -16,8 +16,8 @@ public class test1 extends baseTest {
     public void test1() {
         app.getDriver().get(baseUrl);
         app.getUserHelper().auth(userName, userPass);
-//        app.getMainPage().createFolder("ololo");
-        app.getMainPage().dnd();
+        app.getMainPage().createFolder("ololo");
+//        app.getMainPage().dnd();
         System.out.println();
     }
 }
