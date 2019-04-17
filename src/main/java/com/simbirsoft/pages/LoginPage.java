@@ -22,4 +22,8 @@ public class LoginPage extends Page {
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(submitButton).click();
     }
+
+    public void waitLoadPage() {
+        waitVisible(loginButton);
+    }
 }

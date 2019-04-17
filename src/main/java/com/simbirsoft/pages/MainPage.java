@@ -1,5 +1,6 @@
 package com.simbirsoft.pages;
 
+import com.simbirsoft.components.Resource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ public class MainPage extends Page {
     private By createResourceList = By.cssSelector(".create-resource-popup-with-anchor__create-items > button");
     private By nameModalInput = By.cssSelector(".modal__table input");
     private By submitModalButton = By.cssSelector(".confirmation-dialog__button");
-    private By resourceList = By.cssSelector("div.listing__items > div");
+    private By resourceList = By.cssSelector("div.listing__items > div:not(.listing-item_theme_tile-empty)");
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -37,7 +38,12 @@ public class MainPage extends Page {
         driver.findElement(submitModalButton).click();
     }
 
-    public WebElement getResourceByIndex(int index) {
-        return driver.findElements(resourceList).get(index);
+    public Resource getResourceByIndex(int index) {
+        WebElement element = driver.findElements(resourceList).get(index);
+        return new Resource(element, driver);
+    }
+
+    public int getResourceListSize() {
+        return driver.findElements(resourceList).size();
     }
 }
