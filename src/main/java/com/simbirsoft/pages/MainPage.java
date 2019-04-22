@@ -5,6 +5,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import java.util.List;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated;
+import static org.testng.Assert.assertTrue;
 
 public class MainPage extends Page {
 
@@ -45,5 +54,23 @@ public class MainPage extends Page {
 
     public int getResourceListSize() {
         return driver.findElements(resourceList).size();
+    }
+
+    public void waitHiddenCreateModal() {
+        WebDriverWait wait = new WebDriverWait(driver, 1, 100);
+        wait.until(invisibilityOfElementLocated(submitModalButton));
+    }
+
+    public void dragAndDrop(Resource resource1, Resource resource2) {
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(resource1.root, resource2.root).perform();
+    }
+
+    public void dropResourceToKorzina(Resource resource) {
+        Actions actions = new Actions(driver);
+        List<WebElement> list = driver.findElements(resourceList);
+        Resource korzina = getResourceByIndex(list.size()-1);
+        actions.clickAndHold(resource.root).moveToElement(korzina.root).build().perform();
+        assertTrue(korzina.isActive());
     }
 }
