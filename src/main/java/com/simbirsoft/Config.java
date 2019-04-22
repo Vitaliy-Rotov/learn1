@@ -10,4 +10,7 @@ public class Config {
 
     public static final String USER_NAME = "autotest4";
     public static final String USER_PASS = "sdet123";
+
+    public static final String API_HOST = "https://cloud-api.yandex.net";
+    public static final String TOKEN = "";
 }

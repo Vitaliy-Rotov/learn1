@@ -1,11 +1,13 @@
 package com.simbirsoft.api.disk;
 
+import com.simbirsoft.Config;
 import com.simbirsoft.api.EndPoints;
 import com.simbirsoft.api.models.MetainformationAboutDiskUser;
 import io.restassured.RestAssured;
 import io.restassured.RestAssured.*;
 import io.restassured.http.ContentType;
 
+import static com.simbirsoft.Config.API_HOST;
 import static io.restassured.RestAssured.given;
 
 public class DiskApi {
@@ -20,9 +22,9 @@ public class DiskApi {
         MetainformationAboutDiskUser metainformationAboutDiskUser = given().
                 contentType(ContentType.JSON).
                 accept(ContentType.JSON).
-                header("Authorization", EndPoints.token).
+                header("Authorization", Config.TOKEN).
         when().
-                get(EndPoints.host + basePath).
+                get(API_HOST + basePath).
         then().
                 statusCode(200).
                 extract().
